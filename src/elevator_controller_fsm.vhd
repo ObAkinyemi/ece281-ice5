@@ -98,30 +98,35 @@ begin
     f_Q_next <= s_floor2 when (i_up_down = '1' AND f_Q = s_floor1) else -- going up
                 s_floor3 when (i_up_down = '1' AND f_Q = s_floor2) else
                 s_floor4 when (i_up_down = '1' AND f_Q = s_floor3) else
-                s_floor4 when (i_up_down = '1' AND f_Q = s_floor4) else
-                
+--                s_floor4 when (i_up_down = '1' AND f_Q = s_floor4) else
                 s_floor3 when (i_up_down = '0' AND f_Q = s_floor4) else -- going down
                 s_floor2 when (i_up_down = '0' AND f_Q = s_floor3) else
                 s_floor1 when (i_up_down = '0' AND f_Q = s_floor2) else
                 s_floor1 when (i_up_down = '0' AND f_Q = s_floor1) else
-                
---                 else
---                ; -- default case
+                f_Q;
 
 	-- Output logic
     with f_Q select
         o_floor <=  "0001" when s_floor1,
                     "0010" when s_floor2,
                     "0011" when s_floor3,
-                    "0100" when s_floor4,
-                    "0001" when others; -- default is floor1
+                    "0100" when s_floor4; -- default is floor1
 -- Write the state register for your output logic to work.
 	-------------------------------------------------------------------------------------------------------
 	
 	-- PROCESSES ------------------------------------------------------------------------------------------	
 	
 	-- State register ------------
-	
+	    register_proc : process(i_clk, i_reset, i_stop)
+        begin
+            if rising_edge(i_clk) then
+                if i_reset = '1' then
+                    f_Q <= s_floor2;
+                elsif i_stop = '0' then
+                    f_Q <= f_Q_next;
+                end if;
+            end if;
+        end process register_proc;
 	
 	-------------------------------------------------------------------------------------------------------
 	
