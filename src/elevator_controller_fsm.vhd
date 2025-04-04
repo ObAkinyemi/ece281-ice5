@@ -110,7 +110,8 @@ begin
         o_floor <=  "0001" when s_floor1,
                     "0010" when s_floor2,
                     "0011" when s_floor3,
-                    "0100" when s_floor4; -- default is floor1
+                    "0100" when s_floor4;
+                    "0001" when others; -- default is floor1
 -- Write the state register for your output logic to work.
 	-------------------------------------------------------------------------------------------------------
 	
