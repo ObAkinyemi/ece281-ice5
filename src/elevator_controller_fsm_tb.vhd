@@ -103,9 +103,17 @@ begin
         w_reset <= '1';  wait for k_clk_period;
             assert w_floor = x"2" report "bad reset" severity failure; 
         -- clear reset
-		
+		w_reset <= '0';
+		wait for k_clk_period;
 		-- active UP signal
-		w_up_down <= '1'; 
+		w_up_down <= '1'; wait for k_clk_period;
+		assert w_floor = x"1" report "bad up signal" severity failure;
+		
+		wait for k_clk_period;
+		assert w_floor = x"2" report "bad up signal" severity failure;
+		
+		wait for k_clk_period;
+		assert w_floor = x"3" report "bad up signal" severity failure;
 		
 		-- go up a floor
         w_stop <= '0';  wait for k_clk_period;
@@ -114,10 +122,19 @@ begin
         w_stop <= '1';  wait for k_clk_period * 2;
             assert w_floor = x"3" report "bad wait on floor3" severity failure;
 		--  go up again
+		w_stop <= '0'; wait for k_clk_period *2;
+            assert w_floor = x"4" report "bad enable" severity failure;
+		
 		
 		-- go back down one floor
+		w_up_down <= '0'; wait for k_clk_period;
+		    assert w_floor = x"3" report "bad down" severity failure;
+		
+		
 		
 		-- go up the rest of the way
+		w_up_down <= '1'; wait for k_clk_period;
+		    assert w_floor = x"4" report "bad down" severity failure;
 		
 		-- stop at top
         
