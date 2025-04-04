@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="237.801 ns"></ZoomEndTime>
+      <ZoomEndTime time="546.501 ns"></ZoomEndTime>
       <Cursor1Time time="0.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="174"></NameColumnWidth>
       <ValueColumnWidth column_width="102"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
+   <WVObjectSize size="6" />
    <wvobject fp_name="/elevator_controller_fsm_tb/w_clk" type="logic">
       <obj_property name="ElementShortName">w_clk</obj_property>
       <obj_property name="ObjectShortName">w_clk</obj_property>
@@ -39,17 +39,33 @@
       <obj_property name="ElementShortName">w_floor[3:0]</obj_property>
       <obj_property name="ObjectShortName">w_floor[3:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/elevator_controller_fsm_tb/w_floor[3]" type="logic">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+         <obj_property name="label">floor 4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/elevator_controller_fsm_tb/w_floor[2]" type="logic">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+         <obj_property name="label">floor 3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/elevator_controller_fsm_tb/w_floor[1]" type="logic">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="label">floor 2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/elevator_controller_fsm_tb/w_floor[0]" type="logic">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+         <obj_property name="label">floor 1</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/elevator_controller_fsm_tb/k_clk_period" type="other">
       <obj_property name="ElementShortName">k_clk_period</obj_property>
       <obj_property name="ObjectShortName">k_clk_period</obj_property>
-   </wvobject>
-   <wvobject fp_name="/elevator_controller_fsm_tb/uut_inst/f_Q" type="other">
-      <obj_property name="ElementShortName">f_Q</obj_property>
-      <obj_property name="ObjectShortName">f_Q</obj_property>
-   </wvobject>
-   <wvobject fp_name="/elevator_controller_fsm_tb/uut_inst/f_Q_next" type="other">
-      <obj_property name="ElementShortName">f_Q_next</obj_property>
-      <obj_property name="ObjectShortName">f_Q_next</obj_property>
    </wvobject>
 </wave_config>
